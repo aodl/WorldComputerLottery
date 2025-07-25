@@ -1,0 +1,40 @@
+{
+  "canisters": {
+    "world_computer_lottery_backend": {
+      "main": "src/world_computer_lottery.mo",
+      "type": "motoko"
+    },
+    "icp_index_canister": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/ic/releases/download/ledger-suite-icp-2025-07-04/index.did",
+      "wasm": "https://github.com/dfinity/ic/releases/download/ledger-suite-icp-2025-07-04/ic-icp-index-canister.wasm.gz",
+      "init_arg": "(record { ledger_id = principal \"ryjl3-tyaaa-aaaaa-aaaba-cai\" })",
+      "specified_id": "qhbym-qaaaa-aaaaa-aaafq-cai",
+      "remote": {
+        "id": {
+          "ic": "qhbym-qaaaa-aaaaa-aaafq-cai"
+        }
+      }
+    },
+    "icp_ledger_canister": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/ic/releases/download/ledger-suite-icp-2025-07-04/ledger.did",
+      "wasm": "https://github.com/dfinity/ic/releases/download/ledger-suite-icp-2025-07-04/ledger-canister_notify-method.wasm.gz",
+      "init_arg" : "(variant { Init = record { minting_account = \"082ecf2e3f647ac600f43f38a68342fba5b8e68b085f02592b77f39808a8d2b5\"; initial_values = vec { record { \"2b8fbde99de881f695f279d2a892b1137bfe81a42d7694e064b1be58701e1138\"; record { e8s = 100_000_000_000_000 : nat64; }; }; }; send_whitelist = vec {}; transfer_fee = opt record { e8s = 10_000 : nat64; }; token_symbol = opt \"LICP\"; token_name = opt \"Local ICP\"; } })",
+      "specified_id": "ryjl3-tyaaa-aaaaa-aaaba-cai",
+      "remote": {
+        "id": {
+          "ic": "ryjl3-tyaaa-aaaaa-aaaba-cai"
+        }
+      }
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": "mops sources"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
